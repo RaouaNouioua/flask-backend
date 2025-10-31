@@ -1,7 +1,9 @@
 from flask import Flask, jsonify
+from flask_cors import CORS
 from datetime import datetime
 
 app = Flask(__name__)
+CORS(app)  # <-- This line allows all origins
 
 @app.route('/news.categories.get')
 def get_categories():
@@ -18,7 +20,7 @@ def get_categories():
 
 @app.route('/')
 def index():
-    return 'Welcome ENSIA Students from Flask!'
+    return 'Welcome to Flask Backend!'
 
 if __name__ == "__main__":
     app.run(port=8080)
